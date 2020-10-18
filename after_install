@@ -1,9 +1,9 @@
 #/bin/bash
-RESTART="/sbin/service httpd restart"
+RESTART="/bin/systemctl start httpd.service"
 PGREP="/usr/bin/pgrep"
 HTTPD="httpd"
-$PGREP ${HTTPD}
+$PGREP ${HTTPD} > /dev/null
 if [ $? -ne 0 ]
 then
 $RESTART
-
+fi
