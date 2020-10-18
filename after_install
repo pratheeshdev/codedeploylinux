@@ -1,0 +1,9 @@
+#/bin/bash
+RESTART="/sbin/service httpd restart"
+PGREP="/usr/bin/pgrep"
+HTTPD="httpd"
+$PGREP ${HTTPD}
+if [ $? -ne 0 ]
+then
+$RESTART
+
